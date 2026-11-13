@@ -73,7 +73,7 @@ echo "=============================================================="
 echo "Teste do Diario (deve responder um JSON com 'items'):"
 sleep 8
 INI=$(date -d '-10 days' +%F); FIM=$(date +%F)
-curl -s -m 40 -H "X-Acta-Chave: $CHAVE" "$URL?numeroOab=138327&ufOab=RS&dataDisponibilizacaoInicio=$INI&dataDisponibilizacaoFim=$FIM&itensPorPagina=1&pagina=1" | head -c 300
+curl -s -m 40 -H "X-Acta-Chave: $CHAVE" "$URL?numeroOab=138327&ufOab=RS&dataDisponibilizacaoInicio=$INI&dataDisponibilizacaoFim=$FIM&itensPorPagina=1&pagina=1" | head -c 300 || true   # cortar a resposta com head encerra o curl; sem o "|| true" o script parava aqui
 echo
 # Chave publica do DataJud: e a mesma para todos, publicada pelo CNJ em https://datajud-wiki.cnj.jus.br/api-publica/acesso (muda sem aviso).
 DJ_CHAVE='cDZHYzlZa0JadVREZDJCendQbXY6SkJlTzNjLV9TRENyQk1RdnFKZGRQdw=='
